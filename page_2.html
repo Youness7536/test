@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="quiz_zone">
+            <div class="chance">عندك 3 دلمحاولات </div>
+            <div class="timer"> 10 </div>
+            <h4>ما هو أكبر زب في العالم :</h4>
+
+            <div class="answers">
+                <button class="answer_1">زب رجل إفريقي</button>
+                <button class="answer_2">زب حمار</button>
+            </div>
+
+            <div class="msg"></div>
+            
+        </div>
+        <div class="danger">
+            <div class="content">
+                <h4>موجد كرك !!!</h4>
+                <button class="agree">أه موجد كركي</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const danger = document.querySelector('.danger');
+        const agree = document.querySelector('.agree');
+        const question = document.querySelector('.quiz_zone h4');
+        const answer_1 = document.querySelector('.answers .answer_1');
+        const answer_2 = document.querySelector('.answers .answer_2');
+        const timer = document.querySelector('.timer');
+        const msg = document.querySelector('.msg');
+        const chance = document.querySelector('.chance');
+
+
+        if (answer_1.addEventListener('click', () => {
+            msg.classList.add('showMsgCorrect');
+            msg.innerHTML = 'corrrect';
+            setInterval(() => {
+                window.open('page_3.html', '_self');
+            }, 2000);
+        }));
+
+        var cmp = 3;
+        if (answer_2.addEventListener('click', () => {
+            msg.classList.toggle('showMsgIncorrect');
+            msg.innerHTML = 'iccorrrect';
+            if (cmp > 1) {
+                cmp -= 1;
+                chance.innerHTML = 'عندك ' + cmp + ' دلمحاولات';
+                if (cmp == 1) {
+                    chance.innerHTML = 'بقات لك ' + cmp;
+                }
+                setTimeout(() => {
+                    clearInterval(stop);
+                    msg.classList.toggle('showMsgIncorrect');
+                    msg.innerHTML = 'iccorrrect';
+                }, 1000);
+            };
+        }));
+        danger.classList.add('show');
+        agree.addEventListener('click', () => {
+            danger.classList.remove('show');
+            var cmpTimer = 10;
+            var stop = setInterval(() => {
+                timer.innerHTML = cmpTimer;
+                cmpTimer--;
+                if (timer.innerHTML == 0) {
+                    clearInterval(stop);
+                    msg.classList.add('endTime');
+                    msg.innerHTML = 'da3 lwa9t';
+                };
+            }, 1000);
+        });
+    </script>
+
+</body>
+
+</html>
