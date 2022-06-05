@@ -45,7 +45,7 @@ body {
     place-content: center;
     grid-gap: 15px;
     background-color: #FFC212;
-    padding: 2%;
+    padding: 10px;
     border-radius: 4px;
     transition: all 0.4s ease-in-out;
 }
