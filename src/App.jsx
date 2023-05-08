@@ -98,13 +98,6 @@ function App() {
         <Fields showHistory={showHistory} setState={setState} state={state} />
         <History showHistory={showHistory} state={state} setState={setState} />
       </div>
-      {/* <button
-        onClick={() => {
-          console.log(new Date().toLocaleTimeString());
-        }}
-      >
-        State
-      </button> */}
     </div>
   );
 }
