@@ -22,7 +22,7 @@ const Navigation = ({ setShowHistory, state }) => {
             className="cursor-pointer text-center sm:hidden block"
             onClick={historyHandler}
           >
-            <CgNotes size="20" />
+            <CgNotes size="20" /> add
           </button> */}
           <BasicCard state={state} />
         </div>
